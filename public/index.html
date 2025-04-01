@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Arsenal - Premium Weaponry</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+          <img src="/images/logo.png" alt="Logo">
+          <span>Iron Arsenal</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li id="auth-section">
+            <a href="/login.html" id="login-link">Login</a>
+            <span id="user-greeting" style="display:none;">
+              Welcome, <span id="username-display"></span> | 
+              <a href="#" id="logout-link">Logout</a>
+            </span>
+          </li>
+          <li><a href="#cart"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+        </ul>
+      </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Premium Weaponry for Discerning Clients</h1>
+            <p>Since 1987, Iron Arsenal has provided top-tier firearms and tactical equipment to authorized clients worldwide.</p>
+            <p>All sales are done under proper government guidelines</p>
+            <a href="#products" class="btn">View Collection</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="filter-buttons">
+             <button class="filter-btn active" data-filter="all">All</button>
+             <button class="filter-btn" data-filter="pistol">Pistols</button>
+             <button class="filter-btn" data-filter="rifle">Rifles</button>
+             <button class="filter-btn" data-filter="smg">SMGs</button>
+             <button class="filter-btn" data-filter="shotgun">Shotguns</button>
+             <button class="filter-btn" data-filter="accessory">Accessories</button>
+       </div>
+        <div class="product-grid" id="product-container">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About Iron Arsenal</h2>
+            <p>Founded in 1987, Iron Arsenal is a premier supplier of high-quality firearms and tactical equipment. We serve government agencies, law enforcement, and authorized private clients worldwide.</p>
+            <p>All transactions are conducted in strict compliance with international arms trade regulations. Clients must provide proper credentials and documentation before any purchase can be completed.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>35+</h3>
+                    <p>Years in Business</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Products Available</p>
+                </div>
+                <div class="stat-item">
+                    <h3>60+</h3>
+                    <p>Countries Served</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="logo.jpg" alt="About Iron Arsenal">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries, please use our secure contact form. All communications are encrypted.</p>
+        <form id="contact-form">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Iron Arsenal</h3>
+                <p>Providing premium weaponry solutions since 1987.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Iron Arsenal. This is a fictional website for educational purposes only.</p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+            </div>
+            <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <h3 id="confirm-message">Add this item to cart?</h3>
+            <div class="confirm-buttons">
+            <button id="confirm-yes" class="btn">Yes</button>
+            <button id="confirm-no" class="btn" style="background-color: #666;">No</button>
+            </div>
+        </div>
+     </div>
+    <!-- New Auth Modal -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-title">Authentication Required</h3>
+      <p id="modal-message">Please log in to continue</p>
+      <div class="modal-actions">
+        <a href="/login.html" class="btn">Login</a>
+        <a href="/register.html" class="btn btn-secondary">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/auth.js" type="module"></script>
+  <script src="/js/api.js" type="module"></script>
+  <script src="/js/script.js" type="module"></script>
+</body>
+</html>
